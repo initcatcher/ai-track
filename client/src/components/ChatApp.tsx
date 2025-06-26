@@ -45,7 +45,10 @@ export default function ChatApp() {
     scrollToBottom()
   }, [messages])
 
-  const sendMessageToAI = async (message: string): Promise<string> => {
+  const sendMessageToAI = async (
+    message: string,
+    onChunk: (chunk: string) => void
+  ): Promise<string> => {
     return new Promise((resolve, reject) => {
       const controller = new AbortController()
       let aiResponse = ''
@@ -89,6 +92,8 @@ export default function ChatApp() {
                   const data = line.slice(6).trim()
                   if (data && data !== '[DONE]') {
                     aiResponse += data
+                    // 실시간으로 UI 업데이트
+                    onChunk(aiResponse)
                   }
                 }
               }
@@ -138,9 +143,22 @@ export default function ChatApp() {
 
       setMessages((prev) => [...prev, aiMessage])
 
-      // AI 응답 생성
-      const aiResponseText = await sendMessageToAI(originalText)
+      // AI 응답 생성 (스트리밍)
+      const aiResponseText = await sendMessageToAI(
+        originalText,
+        (partialResponse) => {
+          // 실시간으로 메시지 업데이트
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === aiMessageId
+                ? { ...msg, text: partialResponse, isLoading: false }
+                : msg
+            )
+          )
+        }
+      )
 
+      // 최종 응답으로 한 번 더 업데이트 (완료 상태)
       setMessages((prev) =>
         prev.map((msg) =>
           msg.id === aiMessageId
