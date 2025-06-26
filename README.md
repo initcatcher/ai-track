@@ -2,6 +2,9 @@
 
 AI 번역과 채팅 기능을 제공하는 풀스택 웹 애플리케이션입니다. FastAPI 백엔드와 Next.js 프론트엔드로 구성되어 있으며, OpenAI GPT 모델을 활용한 실시간 스트리밍 기능을 제공합니다.
 
+![AI Track Hero](image.png)
+![AI Track Chat](image2.png)
+
 ## 📋 프로젝트 개요
 
 - **백엔드**: FastAPI + Python (UV 패키지 매니저)
