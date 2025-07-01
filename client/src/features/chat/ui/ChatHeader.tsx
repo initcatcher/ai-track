@@ -19,16 +19,24 @@ export const ChatHeader = ({ language, setLanguage, onClearChat }: ChatHeaderPro
           >
             ← 홈
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            AI 채팅
-          </h1>
+          <div className="flex items-center space-x-3">
+            <span className="text-2xl">💕</span>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                연애인 유재석
+              </h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                국민 MC와 따뜻한 대화를 나눠보세요
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 언어 선택 */}
         <div className="flex items-center space-x-4 flex-wrap gap-2">
           <div className="flex items-center space-x-2">
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              채팅 언어:
+              대화 언어:
             </label>
             <select
               value={language}
@@ -47,7 +55,7 @@ export const ChatHeader = ({ language, setLanguage, onClearChat }: ChatHeaderPro
             onClick={onClearChat}
             className="ml-auto px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 text-sm"
           >
-            채팅 초기화
+            대화 초기화
           </button>
         </div>
       </div>

@@ -23,7 +23,7 @@ export const ChatInput = ({
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyPress={onKeyPress}
-            placeholder="메시지를 입력하세요... (Enter로 전송, Shift+Enter로 줄바꿈)"
+            placeholder="유재석에게 하고 싶은 말을 편하게 적어보세요... (Enter로 전송, Shift+Enter로 줄바꿈)"
             disabled={isProcessing}
             className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
             rows={2}
@@ -36,7 +36,7 @@ export const ChatInput = ({
             {isProcessing ? (
               <div className="flex items-center space-x-2">
                 <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
-                <span>전송</span>
+                <span>전송 중</span>
               </div>
             ) : (
               '전송'
