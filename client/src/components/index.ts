@@ -1,5 +1,7 @@
 export { default as SSEConnection } from './SSEConnection'
 export { default as StreamingConnection } from './StreamingConnection'
 export { default as DemoPage } from './DemoPage'
-export { default as ChatApp } from './ChatApp'
 export { default as TranslateApp } from './TranslateApp'
+export { Homepage } from './Homepage'
+export { Sidebar } from './Sidebar'
+export { LayoutProvider, useLayout } from './LayoutContext'
