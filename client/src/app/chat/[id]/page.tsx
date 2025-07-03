@@ -3,6 +3,11 @@
 
 import { ChatApp } from "@/features/chat";
 
-export default function ChatPage() {
-  return <ChatApp />
+interface ChatPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function ChatPage({ params }: ChatPageProps) {
+  const { id } = await params;
+  return <ChatApp id={id} />;
 }
